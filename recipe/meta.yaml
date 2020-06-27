@@ -1,6 +1,6 @@
 {% set name = "qcengine" %}
-{% set version = "0.14.0" %}
-{% set sha256 = "69d6042fa3e0cc962d66b7ac40eefdb9e8d785e1ecf48e9a6b50233c6b96a978" %}
+{% set version = "0.15.0" %}
+{% set sha256 = "cc3177e9332ea5c2b74516b534168692a390ee49d1f531da55a1e99c21cd2276" %}
 
 package:
   name: {{ name|lower }}
@@ -13,7 +13,7 @@ source:
 build:
   noarch: python
   number: 0
-  script: "{{ PYTHON }} -m pip install . --no-deps -vvv"
+  script: {{ PYTHON }} -m pip install . --no-deps -vvv
 
 requirements:
   build:
@@ -40,7 +40,7 @@ about:
   license: BSD-3-Clause
   license_family: BSD
   license_file: LICENSE
-  summary: 'A wrapper for Quantum Chemistry engines that adheres to the MolSSI (molssi.org) QCSchema.'
+  summary: A wrapper for Quantum Chemistry engines that adheres to the MolSSI (molssi.org) QCSchema.
 
   doc_url: https://qcengine.readthedocs.io/en/latest/
   dev_url: http://github.com/MolSSI/QCEngine
