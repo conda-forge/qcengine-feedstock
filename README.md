@@ -5,7 +5,7 @@ Home: http://github.com/MolSSI/QCEngine
 
 Package license: BSD-3-Clause
 
-Feedstock license: BSD 3-Clause
+Feedstock license: BSD-3-Clause
 
 Summary: A wrapper for Quantum Chemistry engines that adheres to the MolSSI (molssi.org) QCSchema.
 
