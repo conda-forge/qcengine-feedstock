@@ -1,6 +1,6 @@
 {% set name = "qcengine" %}
-{% set version = "0.17.0" %}
-{% set sha256 = "19a2ca5a341514f8f6c491e7570ecd4e98cf31290bd34d47a475722100cc971d" %}
+{% set version = "0.18.0" %}
+{% set sha256 = "4673992bb9dfbaa959330846b11bc2f1b3e31fbb16cd3bbf8f514fcb346a04bb" %}
 
 package:
   name: {{ name|lower }}
@@ -16,7 +16,7 @@ build:
   script: {{ PYTHON }} -m pip install . --no-deps -vvv
 
 requirements:
-  build:
+  host:
     - python >=3.6
     - pip
   run:
