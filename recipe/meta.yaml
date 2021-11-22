@@ -21,6 +21,7 @@ requirements:
     - pip
   run:
     - python >=3.6
+    - setuptools
     - pydantic >=1.8.2
     - pyyaml
     - py-cpuinfo
@@ -32,7 +33,6 @@ test:
     - qcengine
   requires:
     - pytest
-    - setuptools
   commands:
     - pytest --pyargs qcengine
 
