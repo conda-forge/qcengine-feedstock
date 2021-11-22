@@ -1,6 +1,6 @@
 {% set name = "qcengine" %}
-{% set version = "0.20.1" %}
-{% set sha256 = "859c44edbd1b3b1fc1f0acf8720042ef0576dce8a4471c2b759e1443c1bfca18" %}
+{% set version = "0.21.0" %}
+{% set sha256 = "66c3cabdb699ec1059b8e9b3ab5da2b26fc7c9661c2e5407819693ce622c32ae" %}
 
 package:
   name: {{ name|lower }}
@@ -21,11 +21,12 @@ requirements:
     - pip
   run:
     - python >=3.6
+    - setuptools
     - pydantic >=1.8.2
     - pyyaml
     - py-cpuinfo
     - psutil
-    - qcelemental >=0.23.0
+    - qcelemental >=0.24.0
 
 test:
   imports:
