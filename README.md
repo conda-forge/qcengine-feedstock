@@ -1,17 +1,17 @@
-About qcengine
-==============
+About qcengine-feedstock
+========================
+
+Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/qcengine-feedstock/blob/main/LICENSE.txt)
 
 Home: http://github.com/MolSSI/QCEngine
 
 Package license: BSD-3-Clause
 
-Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/qcengine-feedstock/blob/main/LICENSE.txt)
-
 Summary: A wrapper for Quantum Chemistry engines that adheres to the MolSSI (molssi.org) QCSchema.
 
 Development: http://github.com/MolSSI/QCEngine
 
-Documentation: https://qcengine.readthedocs.io/en/latest/
+Documentation: https://molssi.github.io/QCEngine/
 
 Current build status
 ====================
