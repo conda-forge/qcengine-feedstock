@@ -33,6 +33,7 @@ test:
     - qcengine
   requires:
     - pytest
+    - msgpack-python
   commands:
     - pytest --pyargs qcengine
 
