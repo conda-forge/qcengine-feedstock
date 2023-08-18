@@ -1,6 +1,6 @@
 {% set name = "qcengine" %}
-{% set version = "0.28.0" %}
-{% set sha256 = "c736a6659f927c9363a92e97f40c3d5f14df2cbe1b5ddd6f2cc616f35af9c7b5" %}
+{% set version = "0.28.1" %}
+{% set sha256 = "79b65ac85e551875e30453b793629e80236a005ca00770572af76fafc985fd2b" %}
 
 package:
   name: {{ name|lower }}
