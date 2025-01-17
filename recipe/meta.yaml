@@ -1,6 +1,6 @@
 {% set name = "qcengine" %}
-{% set version = "0.30.0" %}
-{% set sha256 = "ba62d34dbcf487e8368f6c19762a19e1c5f06af7e705f6c583c0632b35bccf7d" %}
+{% set version = "0.31.0" %}
+{% set sha256 = "51775d98239b0b51f81904f57946445970f05a0d9d139c5a89b56af9300c1e4f" %}
 
 package:
   name: {{ name|lower }}
@@ -17,16 +17,16 @@ build:
 
 requirements:
   host:
-    - python >=3.6
+    - python >=3.7
     - pip
   run:
-    - python >=3.6
+    - python >=3.7
     - setuptools
     - pydantic >=1.8.2
     - pyyaml
     - py-cpuinfo
     - psutil
-    - qcelemental >=0.26.0,<0.30.0
+    - qcelemental >=0.26.0,<0.70.0
 
 test:
   imports:
@@ -34,8 +34,12 @@ test:
   requires:
     - pytest
     - msgpack-python
+    - pip
   commands:
-    - pytest --pyargs qcengine
+    - test -f $SP_DIR/qcengine/__init__.py
+    - pip check
+    - python -c "import qcengine as qc;assert qc.__version__ == '{{ version }}', f'{qc.__version__=} differs from recipe=\'{{ version }}\''"
+    - pytest --pyargs qcengine    
 
 about:
   home: http://github.com/MolSSI/QCEngine
