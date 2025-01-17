@@ -39,7 +39,7 @@ test:
   commands:
     - test -f $SP_DIR/qcengine/__init__.py
     - pip check
-    - # CORRECT but qcng adds a v for now: python -c "import qcengine as qc;assert qc.__version__ == '{{ version }}', f'{qc.__version__=} differs from recipe=\'{{ version }}\''"
+    # CORRECT but qcng adds a v for now: - python -c "import qcengine as qc;assert qc.__version__ == '{{ version }}', f'{qc.__version__=} differs from recipe=\'{{ version }}\''"
     - python -c "import qcengine as qc;assert qc.__version__ == 'v{{ version }}', f'{qc.__version__=} differs from recipe=\'v{{ version }}\''"
     - python -c "import importlib.metadata as md;assert md.version('{{ name }}') == '{{ version }}', f'{md.version(\'{{ name }}\') differs from recipe=\'{{ version }}\''"
     - pytest --pyargs qcengine    
