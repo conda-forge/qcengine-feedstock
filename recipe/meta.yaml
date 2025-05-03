@@ -22,7 +22,6 @@ requirements:
     - setuptools
   run:
     - python >={{ python_min }}
-    - setuptools
     - packaging
     - pydantic >=1.8.2
     - pyyaml
@@ -38,6 +37,7 @@ test:
     - msgpack-python
     - pip
     - python {{ python_min }}
+    - psi4
   commands:
     - test -f $SP_DIR/qcengine/__init__.py
     # - pip check  # needed until kill off poetry in qcel as py39/numpy/pypi conflicts present
