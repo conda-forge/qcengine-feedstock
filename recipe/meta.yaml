@@ -1,6 +1,6 @@
 {% set name = "qcengine" %}
-{% set version = "0.33.0" %}
-{% set sha256 = "52d7bca6e3b6a9cebbf6db598334119d53bc3ae066627a8b4f7cbb7da1e94600" %}
+{% set version = "0.34.0" %}
+{% set sha256 = "54a50bcb8e5b627e539b153b4db3952bdf2bd2944c580c22b2c9a0c7411effcc" %}
 
 package:
   name: {{ name|lower }}
@@ -21,7 +21,7 @@ requirements:
     - pip
     - setuptools
   run:
-    - python >={{ python_min }}
+    - python >={{ python_min }},<3.14.0
     - packaging
     - pydantic >=1.8.2
     - pyyaml
