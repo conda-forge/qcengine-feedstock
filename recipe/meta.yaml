@@ -25,6 +25,7 @@ requirements:
     - python >={{ python_min }}
     - packaging
     - pydantic >=2.12,<3
+    - pydantic-settings
     - pyyaml
     - py-cpuinfo
     - psutil
