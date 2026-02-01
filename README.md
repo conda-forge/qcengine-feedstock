@@ -36,14 +36,14 @@ Current release info
 Installing qcengine
 ===================
 
-Installing `qcengine` from the `conda-forge` channel can be achieved by adding `conda-forge` to your channels with:
+Installing `qcengine` from the `conda-forge/label/qcengine_dev` channel can be achieved by adding `conda-forge/label/qcengine_dev` to your channels with:
 
 ```
-conda config --add channels conda-forge
+conda config --add channels conda-forge/label/qcengine_dev
 conda config --set channel_priority strict
 ```
 
-Once the `conda-forge` channel has been enabled, `qcengine` can be installed with `conda`:
+Once the `conda-forge/label/qcengine_dev` channel has been enabled, `qcengine` can be installed with `conda`:
 
 ```
 conda install qcengine
@@ -58,26 +58,26 @@ mamba install qcengine
 It is possible to list all of the versions of `qcengine` available on your platform with `conda`:
 
 ```
-conda search qcengine --channel conda-forge
+conda search qcengine --channel conda-forge/label/qcengine_dev
 ```
 
 or with `mamba`:
 
 ```
-mamba search qcengine --channel conda-forge
+mamba search qcengine --channel conda-forge/label/qcengine_dev
 ```
 
 Alternatively, `mamba repoquery` may provide more information:
 
 ```
 # Search all versions available on your platform:
-mamba repoquery search qcengine --channel conda-forge
+mamba repoquery search qcengine --channel conda-forge/label/qcengine_dev
 
 # List packages depending on `qcengine`:
-mamba repoquery whoneeds qcengine --channel conda-forge
+mamba repoquery whoneeds qcengine --channel conda-forge/label/qcengine_dev
 
 # List dependencies of `qcengine`:
-mamba repoquery depends qcengine --channel conda-forge
+mamba repoquery depends qcengine --channel conda-forge/label/qcengine_dev
 ```
 
 
