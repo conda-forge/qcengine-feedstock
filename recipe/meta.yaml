@@ -1,6 +1,6 @@
 {% set name = "qcengine" %}
-{% set version = "0.34.0" %}
-{% set sha256 = "54a50bcb8e5b627e539b153b4db3952bdf2bd2944c580c22b2c9a0c7411effcc" %}
+{% set version = "0.50.0rc1" %}
+{% set sha256 = "ba65e30e5359cad05e744c65f040baa6c48dba692c1e0dd83165950d739a47b1" %}
 
 package:
   name: {{ name|lower }}
@@ -20,14 +20,16 @@ requirements:
     - python {{ python_min }}
     - pip
     - setuptools
+    - setuptools-scm
   run:
-    - python >={{ python_min }},<3.14.0
+    - python >={{ python_min }}
     - packaging
-    - pydantic >=1.8.2
+    - pydantic >=2.12,<3
+    - pydantic-settings
     - pyyaml
     - py-cpuinfo
     - psutil
-    - qcelemental >=0.26.0,<0.70.0
+    - qcelemental >=0.50.0rc1,<0.70.0
 
 test:
   imports:
@@ -40,9 +42,8 @@ test:
     - psi4
   commands:
     - test -f $SP_DIR/qcengine/__init__.py
-    # - pip check  # needed until kill off poetry in qcel as py39/numpy/pypi conflicts present
-    # CORRECT but qcng adds a v for now: - python -c "import qcengine as qc;assert qc.__version__ == '{{ version }}', f'{qc.__version__=} differs from recipe=\'{{ version }}\''"
-    - python -c "import qcengine as qc;assert qc.__version__ == 'v{{ version }}', f'{qc.__version__=} differs from recipe=\'v{{ version }}\''"
+    - pip check
+    - python -c "import qcengine as qc;assert qc.__version__ == '{{ version }}', f'{qc.__version__=} differs from recipe=\'{{ version }}\''"
     - python -c "import importlib.metadata as md;assert md.version('{{ name }}') == '{{ version }}', f'''{md.version('{{ name }}')=} differs from recipe=\'{{ version }}\''''"
     - pytest --pyargs qcengine    
 
