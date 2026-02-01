@@ -51,7 +51,6 @@ about:
   doc_url: https://molssi.github.io/QCEngine/
   dev_url: http://github.com/MolSSI/QCEngine
   license: BSD-3-Clause
-  license_family: BSD
   license_file: LICENSE
   summary: A wrapper for Quantum Chemistry engines that adheres to the MolSSI (molssi.org) QCSchema.
 
