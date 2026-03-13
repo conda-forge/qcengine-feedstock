@@ -1,6 +1,6 @@
 {% set name = "qcengine" %}
-{% set version = "0.50.0rc1" %}
-{% set sha256 = "ba65e30e5359cad05e744c65f040baa6c48dba692c1e0dd83165950d739a47b1" %}
+{% set version = "0.50.0rc2" %}
+{% set sha256 = "5c8c4715e9935d7b2a08b0078b3ceb12dd2d55d7e9eaf6343e5e021eff84cc33" %}
 
 package:
   name: {{ name|lower }}
@@ -24,12 +24,12 @@ requirements:
   run:
     - python >={{ python_min }}
     - packaging
-    - pydantic >=2.12,<3
+    - pydantic >=2.11,<3
     - pydantic-settings
     - pyyaml
     - py-cpuinfo
     - psutil
-    - qcelemental >=0.50.0rc1,<0.70.0
+    - qcelemental >=0.50.0rc3,<0.70.0
 
 test:
   imports:
@@ -40,6 +40,7 @@ test:
     - pip
     - python {{ python_min }}
     - psi4
+    - qcmanybody
   commands:
     - test -f $SP_DIR/qcengine/__init__.py
     - pip check
