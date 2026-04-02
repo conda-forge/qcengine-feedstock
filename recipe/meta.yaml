@@ -40,13 +40,14 @@ test:
     - pip
     - python {{ python_min }}
     - psi4
-    - qcmanybody
+    - libint=2.9.0=*_4
+    - qcmanybody >=0.7.0
   commands:
     - test -f $SP_DIR/qcengine/__init__.py
     - pip check
     - python -c "import qcengine as qc;assert qc.__version__ == '{{ version }}', f'{qc.__version__=} differs from recipe=\'{{ version }}\''"
     - python -c "import importlib.metadata as md;assert md.version('{{ name }}') == '{{ version }}', f'''{md.version('{{ name }}')=} differs from recipe=\'{{ version }}\''''"
-    - pytest --pyargs qcengine -k "not qcmanybody"  # temp restriction while latest psi4 uses 0.5 while qcel rc4 needs 0.7
+    - pytest --pyargs qcengine
 
 about:
   home: http://github.com/MolSSI/QCEngine
