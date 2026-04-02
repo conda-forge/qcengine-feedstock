@@ -1,6 +1,6 @@
 {% set name = "qcengine" %}
-{% set version = "0.50.0rc2" %}
-{% set sha256 = "5c8c4715e9935d7b2a08b0078b3ceb12dd2d55d7e9eaf6343e5e021eff84cc33" %}
+{% set version = "0.50.0rc3" %}
+{% set sha256 = "5868b9b9ebe9aba33231a88c49bfc8850475f08b80ea3b76e9cadb8870ec9fd1" %}
 
 package:
   name: {{ name|lower }}
@@ -29,7 +29,7 @@ requirements:
     - pyyaml
     - py-cpuinfo
     - psutil
-    - qcelemental >=0.50.0rc3,<0.70.0
+    - qcelemental >=0.50.0rc4,<0.70.0
 
 test:
   imports:
@@ -40,13 +40,14 @@ test:
     - pip
     - python {{ python_min }}
     - psi4
-    - qcmanybody
+    - libint=2.9.0=*_4
+    - qcmanybody >=0.7.0
   commands:
     - test -f $SP_DIR/qcengine/__init__.py
     - pip check
     - python -c "import qcengine as qc;assert qc.__version__ == '{{ version }}', f'{qc.__version__=} differs from recipe=\'{{ version }}\''"
     - python -c "import importlib.metadata as md;assert md.version('{{ name }}') == '{{ version }}', f'''{md.version('{{ name }}')=} differs from recipe=\'{{ version }}\''''"
-    - pytest --pyargs qcengine    
+    - pytest --pyargs qcengine
 
 about:
   home: http://github.com/MolSSI/QCEngine
