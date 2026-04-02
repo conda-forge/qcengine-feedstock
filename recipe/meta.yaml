@@ -46,7 +46,7 @@ test:
     - pip check
     - python -c "import qcengine as qc;assert qc.__version__ == '{{ version }}', f'{qc.__version__=} differs from recipe=\'{{ version }}\''"
     - python -c "import importlib.metadata as md;assert md.version('{{ name }}') == '{{ version }}', f'''{md.version('{{ name }}')=} differs from recipe=\'{{ version }}\''''"
-    - pytest --pyargs qcengine    
+    - pytest --pyargs qcengine -k "not qcmanybody"  # temp restriction while latest psi4 uses 0.5 while qcel rc4 needs 0.7
 
 about:
   home: http://github.com/MolSSI/QCEngine
