@@ -39,7 +39,10 @@ test:
     - msgpack-python
     - pip
     - python {{ python_min }}
+    # constraints are to avoid conflict of psi4 demanding qcmb <=0.5
     - psi4
+    - libint=2.9.0=*_4
+    - qcmanybody >=0.7.1
   commands:
     - test -f $SP_DIR/qcengine/__init__.py
     - pip check
