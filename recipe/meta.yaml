@@ -1,6 +1,6 @@
 {% set name = "qcengine" %}
-{% set version = "0.34.2" %}
-{% set sha256 = "7b9a1fbe695c8f64d99dd03bdeb43ebea7fb07ba857d3d17e7bbc7492825d3e7" %}
+{% set version = "0.50.0" %}
+{% set sha256 = "c76d7c4aae103a8a93a5c48cf53cd0c9d8489fd2ed85f942b8d87f3f4b2d6665" %}
 
 package:
   name: {{ name|lower }}
@@ -20,14 +20,16 @@ requirements:
     - python {{ python_min }}
     - pip
     - setuptools
+    - setuptools-scm
   run:
-    - python >={{ python_min }},<3.14.0
+    - python >={{ python_min }}
     - packaging
-    - pydantic >=1.8.2
+    - pydantic >=2.11,<3
+    - pydantic-settings
     - pyyaml
     - py-cpuinfo
     - psutil
-    - qcelemental >=0.26.0,<0.70.0
+    - qcelemental >=0.50.0,<0.70.0
 
 test:
   imports:
@@ -40,9 +42,8 @@ test:
     - psi4
   commands:
     - test -f $SP_DIR/qcengine/__init__.py
-    # - pip check  # needed until kill off poetry in qcel as py39/numpy/pypi conflicts present
-    # CORRECT but qcng adds a v for now: - python -c "import qcengine as qc;assert qc.__version__ == '{{ version }}', f'{qc.__version__=} differs from recipe=\'{{ version }}\''"
-    - python -c "import qcengine as qc;assert qc.__version__ == 'v{{ version }}', f'{qc.__version__=} differs from recipe=\'v{{ version }}\''"
+    - pip check
+    - python -c "import qcengine as qc;assert qc.__version__ == '{{ version }}', f'{qc.__version__=} differs from recipe=\'{{ version }}\''"
     - python -c "import importlib.metadata as md;assert md.version('{{ name }}') == '{{ version }}', f'''{md.version('{{ name }}')=} differs from recipe=\'{{ version }}\''''"
     - pytest --pyargs qcengine    
 
@@ -51,7 +52,6 @@ about:
   doc_url: https://molssi.github.io/QCEngine/
   dev_url: http://github.com/MolSSI/QCEngine
   license: BSD-3-Clause
-  license_family: BSD
   license_file: LICENSE
   summary: A wrapper for Quantum Chemistry engines that adheres to the MolSSI (molssi.org) QCSchema.
 
