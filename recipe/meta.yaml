@@ -1,6 +1,6 @@
 {% set name = "qcengine" %}
-{% set version = "0.50.0" %}
-{% set sha256 = "c76d7c4aae103a8a93a5c48cf53cd0c9d8489fd2ed85f942b8d87f3f4b2d6665" %}
+{% set version = "0.50.1" %}
+{% set sha256 = "2ac0cec69bb35998e5bb92a2ce8844ab4b1cea4e3b35d68cb837eced060ff0c8" %}
 
 package:
   name: {{ name|lower }}
@@ -29,7 +29,7 @@ requirements:
     - pyyaml
     - py-cpuinfo
     - psutil
-    - qcelemental >=0.50.0,<0.70.0
+    - qcelemental >=0.50.4,<0.70.0
 
 test:
   imports:
@@ -41,7 +41,6 @@ test:
     - python {{ python_min }}
     # constraints are to avoid conflict of psi4 demanding qcmb <=0.5
     - psi4
-    - libint=2.9.0=*_4
     - qcmanybody >=0.7.1
   commands:
     - test -f $SP_DIR/qcengine/__init__.py
