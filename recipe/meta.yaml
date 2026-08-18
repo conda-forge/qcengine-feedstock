@@ -1,13 +1,13 @@
 {% set name = "qcengine" %}
-{% set version = "0.50.1" %}
-{% set sha256 = "2ac0cec69bb35998e5bb92a2ce8844ab4b1cea4e3b35d68cb837eced060ff0c8" %}
+{% set version = "0.51.0" %}
+{% set sha256 = "23a122d132329585a8add8cd023d305c0c4c1f5032bf8a7ab22273e05d7c4c0d" %}
 
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
+  url: https://files.pythonhosted.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
   sha256: {{ sha256 }}
 
 build:
